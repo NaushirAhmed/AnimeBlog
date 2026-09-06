@@ -9,10 +9,7 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center p-3 border-b-2 border-gray-400/10 text-sm sticky top-0 z-30">
-
       <div className='flex justify-between items-center gap-6'>
-
-        {/* Logo - always visible */}
         <div className="flex items-center font-bold gap-2 mx-2">
           <div className="w-7 h-7 text-white border-2 font-bold flex justify-center items-center border-[#6C028D] bg-[#C235EA] rounded-[28%]">
             <span className="text-white">AB</span>
@@ -22,7 +19,6 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Nav tabs - hidden on mobile, visible from md up */}
         <div className='hidden md:flex justify-center items-center gap-4'>
           {['Home', 'Category', 'About'].map((tab) => (
             <button
