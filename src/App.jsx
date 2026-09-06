@@ -1,14 +1,20 @@
-import './App.css'
+// App.jsx
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Home from "./components/Home"
+import Home from './components/Home'
+import BlogPost from './pages/BlogPost'
 
-function App() {
 
+const App = () => {
   return (
-    <>
-    <Navbar />
-    <Home/>
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/post/:id" element={<BlogPost />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
