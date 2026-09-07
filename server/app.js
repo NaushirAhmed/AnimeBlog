@@ -1,4 +1,6 @@
 import express from "express"
+import connectedDB from "./config.js/mongo.config.js"
+import 'dotenv/config';
 
 const app = express()
 
@@ -12,3 +14,4 @@ app.get('/',(req,res)=>{
 app.listen(port,()=>{
     console.log(`Example app listening on port ${port}`)
 })
+connectedDB()
