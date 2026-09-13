@@ -12,7 +12,7 @@ export const posts = [
     excerpt: 'Ufotable raises the animation bar once again with breathtaking sakuga sequences.',
     author: 'Yuki Tanaka',
     authorRole: 'Senior Editor',
-    date: 'Aug 29, 2026',
+    date: 'Aug 29, 2024',
     readTime: '6 min read',
     tags: ['Anime', 'Demon Slayer', 'Ufotable', 'Sakuga'],
     trailerVideoId: 'https://www.youtube.com/watch?v=x7uLutVRBfI',
