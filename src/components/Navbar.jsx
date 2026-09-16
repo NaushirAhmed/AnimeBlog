@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { CiSearch, CiMenuBurger } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
   const [activeButton, setActiveButton] = useState(false)
-  const [activeTab, setIsActiveTab] = useState('Home');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <div className="flex justify-between items-center p-3 border-b-2 border-gray-400/10 text-sm sticky top-0 z-30">
@@ -20,40 +21,58 @@ const Navbar = () => {
         </div>
 
         <div className='hidden md:flex justify-center items-center gap-4'>
-          {['Home', 'Category', 'About'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setIsActiveTab(tab)}
-              className={`rounded-xl px-3 py-1.5 font-bold ${activeTab === tab
-                  ? 'bg-[#de9df0]/10 text-[#9B5DE5]'
-                  : 'text-gray-500 hover:text-white hover:bg-gray-500/20'
-                }`}
-            >
-              {tab}
-            </button>
-          ))}
+          <Link
+            to="/"
+            className={`rounded-xl px-3 py-1.5 font-bold transition-colors duration-200 ${
+              location.pathname === '/'
+                ? 'bg-[#de9df0]/10 text-[#9B5DE5]'
+                : 'text-gray-500 hover:text-white hover:bg-[#de9df0]/5'
+            }`}
+          >
+            Home
+          </Link>
+          <Link
+            to="/categories"
+            className={`rounded-xl px-3 py-1.5 font-bold transition-colors duration-200 ${
+              location.pathname === '/categories'
+                ? 'bg-[#de9df0]/10 text-[#9B5DE5]'
+                : 'text-gray-500 hover:text-white hover:bg-[#de9df0]/5'
+            }`}
+          >
+            Category
+          </Link>
+          <Link
+            to="/about"
+            className={`rounded-xl px-3 py-1.5 font-bold transition-colors duration-200 ${
+              location.pathname === '/about'
+                ? 'bg-[#de9df0]/10 text-[#9B5DE5]'
+                : 'text-gray-500 hover:text-white hover:bg-[#de9df0]/5'
+            }`}
+          >
+            About
+          </Link>
         </div>
       </div>
-
 
       <div className='flex items-center justify-center gap-3 sm:gap-5'>
         <button
           onClick={() => setActiveButton(!activeButton)}
-          className={`flex justify-center items-center gap-2 px-3 py-1.5 rounded-xl bg-[#1A1A2A] overflow-hidden ${activeButton ? "border border-[#C235EA]/50" : ""
-            }`}
+          className={`flex justify-center items-center gap-2 px-3 py-1.5 rounded-xl bg-[#1A1A2A] overflow-hidden ${
+            activeButton ? "border border-[#C235EA]/50" : ""
+          }`}
         >
           <CiSearch className="text-white" />
           <input
             type="search"
             placeholder="Search anime"
-            className={`bg-transparent outline-none text-white transition-all duration-200 md:w-28 md:opacity-100 md:ml-1 ${activeButton ? "w-28 opacity-100 ml-1" : "w-0 opacity-0"
-              }`}
+            className={`bg-transparent outline-none text-white transition-all duration-200 md:w-28 md:opacity-100 md:ml-1 ${
+              activeButton ? "w-28 opacity-100 ml-1" : "w-0 opacity-0"
+            }`}
           />
         </button>
 
         <img src="./userimage.webp" alt="" className="rounded-full size-7" />
 
-    
         <button
           onClick={() => setIsDrawerOpen(true)}
           className="md:hidden text-white text-2xl"
@@ -62,7 +81,6 @@ const Navbar = () => {
           <CiMenuBurger />
         </button>
       </div>
-
 
       {isDrawerOpen && (
         <div
@@ -86,25 +104,42 @@ const Navbar = () => {
               </button>
             </div>
 
-            {['Home', 'Category', 'About'].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => {
-                  setIsActiveTab(tab);
-                  setIsDrawerOpen(false);
-                }}
-                className={`text-left px-3 py-2 rounded-xl font-bold ${activeTab === tab
-                    ? 'bg-[#de9df0]/10 text-[#9B5DE5]'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-500/20'
-                  }`}
-              >
-                {tab}
-              </button>
-            ))}
+            <Link
+              to="/"
+              onClick={() => setIsDrawerOpen(false)}
+              className={`text-left px-3 py-2 rounded-xl font-bold transition-colors duration-200 ${
+                location.pathname === '/'
+                  ? 'bg-[#de9df0]/10 text-[#9B5DE5]'
+                  : 'text-gray-400 hover:text-white hover:bg-[#de9df0]/5'
+              }`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/categories"
+              onClick={() => setIsDrawerOpen(false)}
+              className={`text-left px-3 py-2 rounded-xl font-bold transition-colors duration-200 ${
+                location.pathname === '/categories'
+                  ? 'bg-[#de9df0]/10 text-[#9B5DE5]'
+                  : 'text-gray-400 hover:text-white hover:bg-[#de9df0]/5'
+              }`}
+            >
+              Category
+            </Link>
+            <Link
+              to="/about"
+              onClick={() => setIsDrawerOpen(false)}
+              className={`text-left px-3 py-2 rounded-xl font-bold transition-colors duration-200 ${
+                location.pathname === '/about'
+                  ? 'bg-[#de9df0]/10 text-[#9B5DE5]'
+                  : 'text-gray-400 hover:text-white hover:bg-[#de9df0]/5'
+              }`}
+            >
+              About
+            </Link>
           </div>
         </div>
       )}
-
     </div>
   )
 }

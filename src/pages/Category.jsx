@@ -1,9 +1,9 @@
 import React from 'react'
 
-const category = () => {
+const Category = () => {
   return (
     <div className='text-white'>hello</div>
   )
 }
 
-export default category
+export default Category
