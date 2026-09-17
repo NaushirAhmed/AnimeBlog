@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="relative z-10 flex items-center justify-between w-full flex-wrap gap-10">
         <div className="max-w-lg">
           <span className="inline-block bg-[#C235EA]/10 text-[#de9df0] text-xs font-bold px-3 py-1 rounded-xl mb-4">
-            ✦ Featured Anime Bulletin
+            ✦ Featured Anime Bullet
           </span>
 
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
