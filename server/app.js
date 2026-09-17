@@ -8,13 +8,23 @@ const app = express()
 const port = process.env.PORT || 3000
 
 app.use(cors())
-app.use(express.json())
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 app.get('/', (req, res) => {
   res.send('Hello world')
 })
 
 app.use("/api/post", Postrouter)
+
+app.use((err, req, res, next) => {
+  console.error(err.message);
+  res.status(400).json({
+    success: false,
+    error: true,
+    message: err.message || 'Something went wrong',
+  });
+});
 
 connectedDB()
   .then(() => {

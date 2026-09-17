@@ -4,6 +4,7 @@ const postSchema = new mongoose.Schema({
     title: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
     image: { type: String, required: true },
+    imagePublicId: { type: String },
     category: { type: Schema.Types.ObjectId, ref: 'Category' },
     excerpt: { type: String, required: true },
     author: {
@@ -11,6 +12,7 @@ const postSchema = new mongoose.Schema({
         required: true
     },
     trailerVideoId: { type: String },
+    trailerVideoPublicId: { type: String },
     trailerThumb: { type: String },
     body: [
         {
